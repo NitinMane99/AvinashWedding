@@ -1,92 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avinash & Supriya's Wedding</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <title>Bill Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+      max-width: 100%;
+      margin: auto;
+      background-color: #fdfdfd;
+      box-sizing: border-box;
+    }
+    form {
+      width: 100%;
+      max-width: 600px;
+    margin: auto;
+    }
+    input {
+      margin: 5px 0;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .item {
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    button {
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 20px;
+      width: 100%;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      input, label, button {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans text-center p-5">
-    <header class="bg-red-700 p-5 mb-5">
-        <h1 class="text-white text-3xl">Welcome to Avinash & Supriya's Wedding</h1>
-        <p class="text-white mt-2">Join us on our special day!</p>
-        <p class="text-white mt-2">Wedding Date: 09 JULY, 2024 Tuesday</p>
-        <!-- <img src="images/avinash1.png" alt="Wedding Photo" class="mt-5 mx-auto max-w-full h-auto"> -->
-        <section id="slideshow" class="mb-5">
-            <h2 class="text-2xl"></h2>
-            <div class="slideshow-container">
-                <div class="mySlides fade">
-                    <img src="images/avinash1.png" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/av.jpeg" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/avinash1.png" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/av.jpeg" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/avinash1.png" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/av.jpeg" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/avinash1.png" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/av.jpeg" style="width:100%">
-                </div><div class="mySlides fade">
-                    <img src="images/avinash1.png" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/av.jpeg" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/avinash1.png" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/av.jpeg" style="width:100%">
-                </div>
-            </div>
-            <br>
-            <div style="text-align:center">
-                <span class="dot"></span> 
-                <span class="dot"></span> 
-                <span class="dot"></span> 
-            </div>
-        </section>
-    </header>
-    <main>
-        <section id="countdown" class="mb-5">
-            <h2 class="text-2xl">Countdown to our Wedding</h2>
-            <div id="timer" class="text-lg mt-2"></div>
-        </section>
-        
-        <section id="events" class="mb-5">
-            <h2 class="text-2xl">Events</h2>
-            <p class="mt-2">गंगोत्री मंगल कार्यालय, <br>निलकंठेश्वर मंदिर, जुनेगाव, किल्लारी, <br>ता. औसा, जि. लातूर</p>
-        </section>
-        <section id="rsvp" class="mb-5">
-            <h2 class="text-2xl">RSVP</h2>
-            <form id="rsvp-form" class="inline-block text-left mt-2">
-                <label for="name" class="block mb-2">Name:</label>
-                <input type="text" id="name" name="name" required class="block w-full mb-2 p-2 border rounded">
-                <label for="email" class="block mb-2">Email:</label>
-                <input type="email" id="email" name="email" required class="block w-full mb-2 p-2 border rounded">
-                <label for="attending" class="block mb-2">Attending:</label>
-                <select id="attending" name="attending" required class="block w-full mb-2 p-2 border rounded">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-                <button type="submit" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded">Submit</button>
-            </form>
-        </section>
-        
-       
-    </main>
-    <script src="js/scripts.js"></script>
+<body>
+  <h2 style="text-align: center; text-transform: uppercase; font-size: 20px;">Restaurant Bill Generator</h2>
+  <form id="billForm">
+    <label>Restaurant Name: <input name="restaurant" required></label>
+    <label>Address: <input name="address" required></label>
+    <label>Contact No: <input name="contact" ></label>
+    <label>Mobile No: <input name="mobile" ></label>
+    <label>GSTIN: <input name="gst" ></label>
+    <label>FSSAI No: <input name="fssai" ></label>
+    <label>Date: <input name="date" required></label>
+    <label>Time: <input name="time" required></label>
+    <label>Bill No: <input name="billNo" required></label>
+    <label>KOT No: <input name="kot" ></label>
+    <label>Table No: <input name="table" required></label><br>
+
+    <div id="items"></div>
+    <button type="button" onclick="addItem()">Add Item</button>
+    <button type="submit">Generate PDF</button>
+  </form>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    let itemCount = 0;
+    function addItem() {
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.innerHTML = `
+        <label>Item Name: <input name="name${itemCount}" required></label>
+        <label>Quantity: <input name="qty${itemCount}" type="number" required></label>
+        <label>Rate: <input name="rate${itemCount}" type="number" required></label>
+      `;
+      document.getElementById('items').appendChild(div);
+      itemCount++;
+    }
+
+    document.getElementById('billForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: [80, 297] });
+
+      const data = {
+        restaurant: formData.get("restaurant"),
+        address: formData.get("address"),
+        contact: formData.get("contact"),
+        mobile: formData.get("mobile"),
+        gst: formData.get("gst"),
+        fssai: formData.get("fssai"),
+        date: formData.get("date"),
+        time: formData.get("time"),
+        billNo: formData.get("billNo"),
+        kot: formData.get("kot"),
+        table: formData.get("table"),
+        items: []
+      };
+
+      for (let [key, value] of formData.entries()) {
+        const match = key.match(/(name|qty|rate)(\d+)/);
+        if (match) {
+          const [_, field, index] = match;
+          if (!data.items[index]) data.items[index] = {};
+          data.items[index][field] = field === 'qty' || field === 'rate' ? parseFloat(value) : value;
+        }
+      }
+
+      let y = 10;
+      doc.setFontSize(10).setFont('courier', 'bold');
+      doc.text(data.restaurant.toUpperCase(), 40, y, { align: 'center' }); y += 4;
+      doc.setFontSize(8).setFont('courier', 'normal');
+      doc.text(data.address, 40, y, { align: 'center' }); y += 4;
+      doc.text(`Contact No: ${data.contact}`, 40, y, { align: 'center' }); y += 4;
+      doc.text(`Mob No: ${data.mobile}`, 40, y, { align: 'center' }); y += 4;
+      doc.text(`GSTIN: ${data.gst}`, 40, y, { align: 'center' }); y += 4;
+      doc.text(`FSSAI: ${data.fssai}`, 40, y, { align: 'center' }); y += 4;
+      doc.text(`${data.date} ${data.time}`, 40, y, { align: 'center' }); y += 5;
+      doc.setFont(undefined, 'bold');
+      doc.text("Dine In", 10, y); y += 4;
+      doc.text(`Bill No: ${data.billNo}`, 10, y);
+      doc.text(`KOT No: ${data.kot}`, 50, y); y += 4;
+      doc.setFont(undefined, 'normal');
+      doc.text(`Table: ${data.table}`, 10, y); y += 4;
+      doc.text(`Time: ${data.time}`, 10, y); y += 4;
+      doc.text("----------------------------------------", 10, y); y += 4;
+      doc.setFont(undefined, 'bold');
+      doc.text("Item", 10, y);
+      doc.text("Qty", 35, y);
+      doc.text("Total", 60, y); y += 4;
+      doc.setFont(undefined, 'normal');
+
+      let total = 0;
+      let qtyTotal = 0;
+      data.items.forEach((item, i) => {
+        const itemTotal = item.qty * item.rate;
+        total += itemTotal;
+        qtyTotal += item.qty;
+        doc.text(`${item.name}`, 10, y);
+        doc.text(`${item.qty}`, 35, y, { align: 'right' });
+        doc.text(`Rs ${itemTotal.toFixed(2)}`, 70, y, { align: 'right' });
+        y += 4;
+      });
+
+      const cgst = total * 0.025;
+      const sgst = total * 0.025;
+      const grandTotal = total + cgst + sgst;
+
+      y += 2;
+      doc.text("----------------------------------------", 10, y); y += 4;
+      doc.text(`Total Qty: ${qtyTotal}`, 10, y); y += 4;
+      doc.text(`Amount: Rs ${total.toFixed(2)}`, 10, y); y += 4;
+      doc.text(`CGST (2.5%): Rs ${cgst.toFixed(2)}`, 10, y); y += 4;
+      doc.text(`SGST (2.5%): Rs ${sgst.toFixed(2)}`, 10, y); y += 4;
+      doc.setFont(undefined, 'bold');
+      doc.text(`Grand Total: Rs ${grandTotal.toFixed(2)}`, 10, y); y += 6;
+      doc.setFont(undefined, 'normal');
+      doc.text("Scan & pay via UPI", 10, y); y += 4;
+      doc.text("Powered by TMbill v7.3.128", 10, y);
+
+      doc.save(`Bill_${data.billNo}.pdf`);
+    }
+  </script>
 </body>
 </html>
