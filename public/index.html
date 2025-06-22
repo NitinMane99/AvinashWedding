@@ -70,10 +70,9 @@
   <form id="billForm">
     <label>Restaurant Name: <input name="restaurant" required></label>
     <label>Address: <input name="address" required></label>
-    <label>Contact No: <input name="contact" ></label>
+    
     <label>Mobile No: <input name="mobile" ></label>
-    <label>GSTIN: <input name="gst" ></label>
-    <label>FSSAI No: <input name="fssai" ></label>
+    
     <label>Date: <input name="date" required></label>
     <label>Time: <input name="time" required></label>
     <label>Bill No: <input name="billNo" required></label>
@@ -137,13 +136,12 @@
       doc.text(data.address, 40, y, { align: 'center' }); y += 4;
       doc.text(`Contact No: ${data.contact}`, 40, y, { align: 'center' }); y += 4;
       doc.text(`Mob No: ${data.mobile}`, 40, y, { align: 'center' }); y += 4;
-      doc.text(`GSTIN: ${data.gst1}`, 40, y, { align: 'center' }); y += 4;
-      doc.text(`FSSAI: ${data.fssai2}`, 40, y, { align: 'center' }); y += 4;
+      
       doc.text(`${data.date} ${data.time}`, 40, y, { align: 'center' }); y += 5;
       doc.setFont(undefined, 'bold');
       doc.text("Dine In", 10, y); y += 4;
       doc.text(`Bill No: ${data.billNo}`, 10, y);
-      doc.text(`KOT No: ${data.kot}`, 50, y); y += 4;
+     
       doc.setFont(undefined, 'normal');
       doc.text(`Table: ${data.table}`, 10, y); y += 4;
       doc.text(`Time: ${data.time}`, 10, y); y += 4;
