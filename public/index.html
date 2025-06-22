@@ -181,6 +181,9 @@
       doc.text("Powered by Teraita Platform Inc.", 10, y);
 
       doc.save(`Bill_${data.billNo}.pdf`);
+      doc.output('dataurlnewwindow'); // opens in new tab
+// or
+doc.save(`Bill_${data.billNo}.pdf`); // direct download
     }
   </script>
 </body>
